@@ -10,7 +10,7 @@ async function getWebSiteData(url) {
 
 export function getIziwayProduct(keyWord_arg: string) {
     let products_iziway : Product[] = [];
-    let urlReq = 'https://iziway.cm/search?q=wibrrrword';
+    let urlReq = 'https://iziway.cm/search?q=wibrrrword&pagesize=100';
     let str = keyWord_arg.replace(' ', '+');
         urlReq = urlReq.replace('wibrrrword', str)
     return getWebSiteData(urlReq).then((data)=>{
