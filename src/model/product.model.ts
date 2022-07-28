@@ -1,6 +1,7 @@
 declare type Product = {
     name: String;
-    price: Number;
+    price: String;
+    oldprice : String;
     link: String;
 }
 export= Product;

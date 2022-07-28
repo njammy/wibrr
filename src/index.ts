@@ -1,4 +1,13 @@
-import axios from 'axios';
-import cheerio from 'cheerio';
-import Product from './model/product.model';
+import { getGloProduct, getIziwayProduct } from "./controller/product.controller";
 
+// getGloProduct("tecno camon").then((data)=>{
+//   data.forEach((d)=>{
+//     console.dir(d)
+//   })
+// })
+
+getIziwayProduct("tecno camon").then((data)=>{
+  data.forEach((d)=>{
+    console.dir(d)
+  })
+})

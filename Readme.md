@@ -2,7 +2,7 @@
 
 # Wibrr
 
-## _Pronounce Wibeurrrr, is tool which compare product price from some cameroonians ecommerce websites_
+## _Want to buy an article on Iziway.cm or Glotelho.cm and don't know which of them offer the best price profit ? Wibrr Pronounce Wibeurrrr, is tool which find and compare for you article price from this cameroonians ecommerce websites_
 
 
 ## FEATURES
