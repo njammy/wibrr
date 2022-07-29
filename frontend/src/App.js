@@ -28,7 +28,7 @@ function App() {
               ))
             }
           </div>
-          <div className='article-result'>
+          <div className='article-result article-just-right'>
             {
               Data.filter(product => {
                 if (query === '') {

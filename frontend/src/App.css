@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   padding: 2em;
-  height: 100%;
+  min-height: 100%;
   /* animation: col 6s infinite linear; */
 }
 
@@ -16,6 +16,9 @@
 .article-result{
   display: flex;
   flex-wrap: wrap;
+}
+.article-just-right{
+  justify-content: end;
 }
 .box {
   padding: 0.3em;

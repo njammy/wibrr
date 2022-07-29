@@ -1,14 +1,38 @@
 import axios from 'axios';
+import express, { Request, Response } from "express";
 import cheerio from 'cheerio';
 import Product from './../model/product.model';
+
+export const productController = express.Router();
+
+productController.post("/iziway", async (req: Request, res: Response) => {
+  try {
+      getIziwayProduct(req.body.findterm).then((dataScrap)=>{
+        res.status(200).json(dataScrap);
+      })
+  } catch (e) {
+    res.status(500).send(e);
+  }
+});
+
+productController.post("/glotelho", async (req: Request, res: Response) => {
+  try {
+      getGloProduct(req.body.findterm).then((dataScrap)=>{
+        res.status(200).json(dataScrap);
+      })
+  } catch (e) {
+    res.status(500).send(e);
+  }
+});
+
+
 
 async function getWebSiteData(url) {
   const { data, status } = await axios.get(url);
   return data;
 }
 
-
-export function getIziwayProduct(keyWord_arg: string) {
+function getIziwayProduct(keyWord_arg: string) {
     let products_iziway : Product[] = [];
     let urlReq = 'https://iziway.cm/search?q=wibrrrword&pagesize=100';
     let str = keyWord_arg.replace(' ', '+');
@@ -19,8 +43,8 @@ export function getIziwayProduct(keyWord_arg: string) {
       productListTag.each((index, element)=>{
         let product: Product= {
             name: $(element).find('.c-product-content > p > a').text(),
-            price: $(element).find('.c-product-content > div > span ').first().text().replace('Fcfa', ''),
-            oldprice: $(element).find('.c-product-content > div > span > del ').text().replace('Fcfa', ''),
+            price: $(element).find('.c-product-content > div > span ').first().text().replace('FCFA', ''),
+            oldprice: $(element).find('.c-product-content > div > span > del ').text().replace('FCFA', ''),
             link: 'https://iziway.cm/'+ $(element).find('.c-product-img > a ').attr('href')
         }
         index%2==0 ? products_iziway.push(product) : null;
@@ -29,7 +53,7 @@ export function getIziwayProduct(keyWord_arg: string) {
     })
 }
 
-export function getGloProduct(keyWord_arg: string) {
+function getGloProduct(keyWord_arg: string) {
     let products_glo : Product[] = [];
     let urlReq = "https://glotelho.cm/fr/search/wibrrrword?product_list_limit=all";
     let str = keyWord_arg.replace(' ', '%20');
