@@ -16,10 +16,3 @@ app.use('/', productController)
 app.listen(3000, () => {
   console.log(`Listening on port ${3000}`);
 });
-
-// getGloProduct("tecno camon").then((data)=>{
-//   data.forEach((d)=>{
-//     console.dir(d)
-//   })
-// })
-

@@ -5,35 +5,13 @@
   /* animation: col 6s infinite linear; */
 }
 
-.wibrr-space{
-    background: white;
-    padding: 1em;
-    height: 85vh;
-    border-radius: 5px;
-    box-shadow: 0px 0px 54px 8px rgb(0 0 0 / 21%)
-}
 
-.article-result{
-  display: flex;
-  flex-wrap: wrap;
-}
-.article-just-right{
-  justify-content: end;
-}
-.box {
-  padding: 0.3em;
-    text-align: left;
-    border: 1px red solid;
-    margin: 0.2em;
-}
-
-.box-best{
-  border: 1px green solid !important;
-}
-
-.results{
-  display: grid;
-  grid-template-columns: 50% 50%;
+@media only screen and (max-width: 425px) {
+  .App {
+    text-align: center;
+    padding: 0.5em;
+    min-height: 100%;
+  }
 }
 
 /* @keyframes col { 

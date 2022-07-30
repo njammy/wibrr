@@ -5,7 +5,7 @@ import Product from './../model/product.model';
 
 export const productController = express.Router();
 
-productController.post("/iziway", async (req: Request, res: Response) => {
+productController.post("/izi", async (req: Request, res: Response) => {
   try {
       getIziwayProduct(req.body.findterm).then((dataScrap)=>{
         res.status(200).json(dataScrap);
@@ -15,7 +15,7 @@ productController.post("/iziway", async (req: Request, res: Response) => {
   }
 });
 
-productController.post("/glotelho", async (req: Request, res: Response) => {
+productController.post("/glo", async (req: Request, res: Response) => {
   try {
       getGloProduct(req.body.findterm).then((dataScrap)=>{
         res.status(200).json(dataScrap);
