@@ -2,10 +2,10 @@
   "name": "node-typescript-starter",
   "version": "1.0.0",
   "description": "Desc",
-  "main": "index.js",
+  "main": "app.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon --watch \"*.ts\" --exec \"ts-node\" ./src/index.ts",
+    "start": "nodemon --watch \"*.ts\" --exec \"ts-node\" ./src/app.ts",
     "eslint:fix": "eslint --fix"
   },
   "devDependencies": {
