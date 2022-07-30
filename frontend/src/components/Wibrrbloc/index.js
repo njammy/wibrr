@@ -3,6 +3,7 @@ import './Wibrrbloc.css'
 import axios from 'axios'
 import Product from '../Product';
 
+let urlbase_prod = "http://wibrrdemo.eu-4.evennode.com"
 let urlbase_dev = "http://localhost:3000"
 class Wibrrbloc extends Component {
 
