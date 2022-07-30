@@ -1,0 +1,89 @@
+@media only screen and (min-width: 426px) {
+  .box {
+    padding: 0.5em;
+    text-align: left;
+    border-radius: 6px;
+    margin: 0.3em;
+    height: 17.5em;
+    background: white;
+    border: 0px solid white;
+    display: block;
+    flex-wrap: wrap;
+    width: 12em;
+  }
+  .name {
+    display: flex;
+    justify-content: center;
+    text-overflow: ellipsis;
+    height: 5.5em;
+    overflow: hidden;    
+    color: blue;
+    font-style: italic;
+    cursor: pointer;
+  }
+  .box > div > img {
+    height: 10em;
+  }
+  .seemore {
+      text-decoration: none;
+      color: white;
+      background: black;
+      padding: 0.5em;
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+  }
+  .price {
+    text-align: left;
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+}
+@media only screen and (max-width: 425px) {
+    .box {
+      padding: 0.5em;
+      text-align: left;
+      border-radius: 6px;
+      margin: 0.3em;
+      height: 17.5em;
+      background: white;
+      border: 0px solid white;
+      display: block;
+      flex-wrap: wrap;
+    }
+    .name {
+      display: flex;
+      justify-content: center;
+      text-overflow: ellipsis;
+      height: 5.5em;
+      overflow: hidden;    
+      color: blue;
+      font-style: italic;
+    }
+    .box > div > img {
+      height: 10em;
+    }
+    .seemore {
+        text-decoration: none;
+        color: white;
+        background: black;
+        padding: 0.5em;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+    }
+    .price {
+      text-align: left;
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+  }
+  
+  @media only screen and (max-width: 320px) {
+    .box {
+      height: 15.5em;
+    }
+    .box > div > img {
+        height: 8em;
+    }
+  }
