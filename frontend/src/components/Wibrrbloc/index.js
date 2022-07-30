@@ -3,6 +3,7 @@ import './Wibrrbloc.css'
 import axios from 'axios'
 import Product from '../Product';
 
+let urlbase_dev = "http://localhost:3000"
 class Wibrrbloc extends Component {
 
     constructor() {
@@ -12,20 +13,28 @@ class Wibrrbloc extends Component {
             dataIziway : [],
             dataGlo: [],
             isLoad: false,
-            errMsg: ""
+            errMsg: "",
+            isEmpty: false
         }
     }
 
     requestSearch = () => {
         this.setState({isLoad: true})
-        axios.post(`http://localhost:3000/glo`, { "findterm" : this.state.query }).then(res => {
-            axios.post(`http://localhost:3000/izi`, { "findterm" : this.state.query }).then(resp => {
-                if(resp.data.length > res.data.length){
-                    this.setState({dataIziway: resp.data.slice(0,res.data.length)})
-                    this.setState({dataGlo: res.data})
+        this.setState({isEmpty: false})
+        axios.post(`http://localhost:3000/glo`, { "findterm" : this.state.query }).then(glores => {
+            axios.post(`http://localhost:3000/izi`, { "findterm" : this.state.query }).then(izires => {
+                console.log('glo: '+glores.data.length)
+                console.log('izi: '+izires.data.length)
+                if(glores.data.length == 0 || izires.data.length==0) {
+                    this.setState({isEmpty: true})
+                    this.setState({isLoad: false})
+                }
+                if(izires.data.length > glores.data.length){
+                    this.setState({dataIziway: izires.data.slice(0,glores.data.length)})
+                    this.setState({dataGlo: glores.data})
                 } else {
-                    this.setState({dataIziway: resp.data})
-                    this.setState({dataGlo: res.data.slice(0,resp.data.length)})
+                    this.setState({dataIziway: izires.data})
+                    this.setState({dataGlo: glores.data.slice(0,izires.data.length)})
                 }
                 this.setState({isLoad: false})
             }).catch((e)=>{
@@ -61,6 +70,11 @@ class Wibrrbloc extends Component {
                         <label># The terms which your find is write in bad format. eg: "ceinture" mdr..</label> <br/>
                         <label># The terms which your find crash our server :xd</label>
                     </div>
+                    :
+                    this.state.isEmpty ?
+                        <div className='error-alert'> 
+                            <div>Oww...sorry, no results were found in either of the two ecommerce</div>
+                        </div>
                     :
                     <div  className='results'>
                         <div className='article-result'>
