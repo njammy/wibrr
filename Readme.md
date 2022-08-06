@@ -1,8 +1,8 @@
 
 
-# Wibrr
+# Wibrr frontend
 
-## _Want to buy an article on Iziway.cm or Glotelho.cm and don't know which of them offer the best price profit ? Wibrr Pronounce Wibeurrrr, is tool which find and compare for you article price from this cameroonians ecommerce websites_
+## _Wibrr display results to end user_
 
 
 ## FEATURES
